@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Space Grotesk", sans-serif;
+  --font-mono: monospace;
+}
+
+@layer base {
+  :root {
+    --surface: #131313;
+    --surface-dim: #131313;
+    --surface-bright: #3a3939;
+    --on-surface: #e5e2e1;
+    --on-surface-variant: #d1c1d7;
+    --outline: #9a8ca0;
+    --primary: #e3b5ff;
+    --on-primary: #4d007a;
+    --secondary: #ffe2ab;
+    --tertiary: #00dbe9;
+    --background: #0A0A0B; /* Deep obsidian */
+    --surface-tier2: rgba(10, 10, 11, 0.8);
+    --surface-tier3: rgba(10, 10, 11, 0.6);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--on-surface);
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden; /* Desktop dashboard feel */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    background-color: var(--surface-tier2);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(229, 226, 225, 0.1);
+    border-top: 1px solid rgba(229, 226, 225, 0.2);
+    border-left: 1px solid rgba(229, 226, 225, 0.2);
+    border-radius: 0;
+  }
+
+  /* Neon glowing variants */
+  .border-glow-primary {
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 8px 1px rgba(227, 181, 255, 0.5), inset 0 0 8px 1px rgba(227, 181, 255, 0.2);
+  }
+
+  .border-glow-secondary {
+    border: 1px solid var(--secondary);
+    box-shadow: 0 0 8px 1px rgba(255, 226, 171, 0.5), inset 0 0 8px 1px rgba(255, 226, 171, 0.2);
+  }
+
+  .border-glow-tertiary {
+    border: 1px solid var(--tertiary);
+    box-shadow: 0 0 8px 1px rgba(0, 219, 233, 0.5), inset 0 0 8px 1px rgba(0, 219, 233, 0.2);
+  }
+
+  .btn-cyber {
+    background: transparent;
+    border: 1px solid var(--secondary);
+    color: var(--on-surface);
+    font-family: "Space Grotesk", sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 0;
+  }
+
+  .btn-cyber:hover {
+    background: linear-gradient(135deg, rgba(227,181,255,0.4) 0%, rgba(144,0,222,0.6) 100%);
+    border-color: var(--primary);
+    box-shadow: 0 0 10px 1px rgba(227, 181, 255, 0.5);
+  }
+
+  .btn-cyber-primary {
+    background: var(--primary);
+    color: var(--on-primary);
+    border: 1px solid var(--primary);
+    font-family: "Space Grotesk", sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 0;
+  }
+
+  .btn-cyber-primary:hover {
+    box-shadow: 0 0 15px 3px rgba(227, 181, 255, 0.6);
+  }
+
+  /* Target Reticle */
+  .target-frame {
+    position: relative;
+    padding: 20px;
+  }
+  .target-frame::before, .target-frame::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-color: var(--on-surface-variant);
+    border-style: solid;
+    pointer-events: none;
+  }
+  .target-frame::before {
+    top: 0; left: 0;
+    border-width: 2px 0 0 2px;
+  }
+  .target-frame::after {
+    bottom: 0; right: 0;
+    border-width: 0 2px 2px 0;
+  }
+  .target-frame-inner::before, .target-frame-inner::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-color: var(--on-surface-variant);
+    border-style: solid;
+    pointer-events: none;
+  }
+  .target-frame-inner::before {
+    top: 0; right: 0;
+    border-width: 2px 2px 0 0;
+  }
+  .target-frame-inner::after {
+    bottom: 0; left: 0;
+    border-width: 0 0 2px 2px;
+  }
+  
+  /* Log Terminal Scrollbar */
+  .terminal-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+  .terminal-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .terminal-scroll::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 0;
+  }
+}

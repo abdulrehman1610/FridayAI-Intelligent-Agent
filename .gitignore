@@ -1,0 +1,32 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.python-version
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+build/
+.env.local
+
+# Expo / React Native
+.expo/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Misc
+*.pem
+coverage/
